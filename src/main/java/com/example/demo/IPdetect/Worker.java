@@ -21,7 +21,11 @@ public class Worker implements Runnable{
                 }
                 InetAddress address = InetAddress.getByName(ip);
                 boolean reachable = address.isReachable(1000);
-
+                if (!reachable && workingIpPool.name.equals("aliveIP")) {
+                    for (int i = 0; i < 5 && !reachable; i++) {
+                        reachable = address.isReachable(1000);
+                    }
+                }
                 if(reachable){
                     IpPool.aliveIP.save(ip);
 //                    System.out.println(ip+"is alive");
