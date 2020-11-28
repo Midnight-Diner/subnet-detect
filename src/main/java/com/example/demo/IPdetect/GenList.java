@@ -16,9 +16,9 @@ public class GenList {
         long num0 = 32 - subNetLength;
         long mask = (base1 >> num0) << num0;
         long ipStart = ip & mask;
-        long ipEnd = (ip | (~mask))&base1;
-        ArrayList<String> list=new ArrayList<>();
-        for (long i = ipStart; i <=ipEnd; i++) {
+        long ipEnd = (ip | (~mask)) & base1;
+        ArrayList<String> list = new ArrayList<>();
+        for (long i = ipStart; i <= ipEnd; i++) {
             list.add(longToIp(i));
         }
         return list;
@@ -49,7 +49,7 @@ public class GenList {
 
     public void writeToFile(List<String> list) throws FileNotFoundException {
         PrintWriter printWriter = new PrintWriter("ip.txt");
-        for (String s:list) {
+        for (String s : list) {
             printWriter.println(s);
         }
         printWriter.flush();

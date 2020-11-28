@@ -26,7 +26,7 @@ public class IpPool {
         if (tempList.contains(ip)) {
             tempList.remove(ip);
         } else {
-            if(name.equals("aliveIP")){
+            if (name.equals("aliveIP")) {
 //                System.out.println("alive: "+size());
             }
             aliveIP.tempList.remove(ip);

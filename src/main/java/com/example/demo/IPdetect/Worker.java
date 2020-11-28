@@ -2,7 +2,7 @@ package com.example.demo.IPdetect;
 
 import java.net.InetAddress;
 
-public class Worker implements Runnable{
+public class Worker implements Runnable {
     public Worker(WorkGroup workGroup) {
         this.workGroup = workGroup;
     }
@@ -11,11 +11,11 @@ public class Worker implements Runnable{
 
     @Override
     public void run() {
-        while (workGroup.working){
+        while (workGroup.working) {
             try {
-                IpPool workingIpPool=workGroup.workingIpPool;
-                String ip=workingIpPool.get();
-                if(ip==null){
+                IpPool workingIpPool = workGroup.workingIpPool;
+                String ip = workingIpPool.get();
+                if (ip == null) {
                     Thread.sleep(1000);
                     continue;
                 }
@@ -26,17 +26,17 @@ public class Worker implements Runnable{
                         reachable = address.isReachable(1000);
                     }
                 }
-                if(reachable){
+                if (reachable) {
                     IpPool.aliveIP.save(ip);
 //                    System.out.println(ip+"is alive");
-                }else {
-                    if(workingIpPool.name.equals("deadIP")){
+                } else {
+                    if (workingIpPool.name.equals("deadIP")) {
                         IpPool.deadIP.save(ip);
-                    }else {
+                    } else {
                         IpPool.violentIP.save(ip);
                     }
                 }
-            }catch (Exception exception){
+            } catch (Exception exception) {
                 exception.printStackTrace();
             }
         }

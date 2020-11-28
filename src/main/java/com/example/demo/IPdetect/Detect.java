@@ -22,7 +22,7 @@ public class Detect implements Runnable {
     public void run() {
         while (true) {
             int alive = IpPool.aliveIP.size();
-            Num num = new Num(new Date().getTime() / 1000 * 1000 +8*3600000, alive);
+            Num num = new Num(new Date().getTime() / 1000 * 1000 + 8 * 3600000, alive);
             numMapper.save(num);
             try {
                 Thread.sleep(1000);
