@@ -17,7 +17,7 @@
 <div id="container" style="min-width:400px;height:400px"></div>
 <script>
     var chart = null;
-    $.getJSON('http://localhost/data', function (data) {
+    $.getJSON('/data', function (data) {
 // $.getJSON('https://data.jianshukeji.com/jsonp?filename=json/usdeur.json&callback=?', function (data) {
         chart = Highcharts.chart('container', {
             chart: {
