@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "num", schema = "njuwlan")
+//@Table(name = "num", schema = "njuwlan")
 public class Num {
     long time;
     Integer num;
