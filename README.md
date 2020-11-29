@@ -14,3 +14,7 @@
 
 网站位置：请连接校园网后，登录http://172.26.59.58/
 
+
+③项目配置文件，用于指定校园网的网络地址
+
+src/main/resources/net.properties
