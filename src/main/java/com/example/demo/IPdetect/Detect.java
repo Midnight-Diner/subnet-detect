@@ -3,6 +3,8 @@ package com.example.demo.IPdetect;
 import com.example.demo.Num;
 import com.example.demo.NumMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Id;
@@ -10,11 +12,13 @@ import java.util.Date;
 import java.util.List;
 
 @Component
+@PropertySource("classpath:net.properties")
 public class Detect implements Runnable {
+
     @Autowired
-    public Detect(NumMapper numMapper) {
+    public Detect(NumMapper numMapper,@Value("${network}") String net,@Value("${NetworkPrefix}") int networkPrefix) {
         this.numMapper = numMapper;
-        List<String> IPlist = new GenList().gen("172.28.192.1", 20);
+        List<String> IPlist = new GenList().gen(net, networkPrefix);
         IpPool.deadIP.list.addAll(IPlist);
         WorkGroup aliveGroup = new WorkGroup(IpPool.aliveIP, 10);
         WorkGroup deadGroup = new WorkGroup(IpPool.deadIP, 100);
