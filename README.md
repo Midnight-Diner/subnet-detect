@@ -9,7 +9,6 @@
 
 代码实现：subnet-detect/src/main/java/com/example/demo
 
-测试文件：subnet-detect/src/test/java/com/example/demo
 
 ② 基于Web的图书馆实时人数监测可视化   
 
