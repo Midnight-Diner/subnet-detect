@@ -12,5 +12,5 @@
 
 ② 基于Web的图书馆实时人数监测可视化   
 
-网站位置：subnet-detect/src/main/resources
+网站位置：请连接校园网后，登录http://172.26.59.58/
 
